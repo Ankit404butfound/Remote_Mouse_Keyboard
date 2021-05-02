@@ -20,7 +20,7 @@ coords = [(0, 0)]
 
 
 @app.route('/', methods=["GET", "POST"])
-def send():
+def send() -> str:
     # print("here")
     if request.method == 'POST':
         # print(request.get_json())
@@ -198,7 +198,7 @@ function enter_but(){
 
 
 @app.route('/handler', methods=["POST"])
-def handle():
+def handle() -> str:
     global moving, cordlst, lastcords
     lst = []
     a = request.form['a']
@@ -218,7 +218,7 @@ def handle():
 
 
 @app.route('/scroller', methods=["POST"])
-def scrollerr():
+def scrollerr() -> str:
     global moving, cordlst, lastcords2
     a = request.form['a']
     b = request.form['b']
@@ -236,7 +236,7 @@ def scrollerr():
 
 
 @app.route("/tstart", methods=["POST"])
-def startt():
+def startt() -> str:
     global lastcords, lastcords2
     # print("end")
     a = request.form['a']
@@ -250,7 +250,7 @@ def startt():
 
 
 @app.route("/click", methods=["POST"])
-def do_click():
+def do_click() -> str:
     global moving
     if not moving:
         a = request.form['a']
@@ -266,7 +266,7 @@ def do_click():
 
 
 @app.route("/typed", methods=["POST"])
-def typeit():
+def typeit() -> str:
     global type_data, old_data
     data = request.form['data']
     type_data = str(data)
@@ -279,13 +279,13 @@ def typeit():
 
 
 @app.route("/enter", methods=["POST"])
-def slashN():
+def slashN() -> str:
     p.press("enter")
     return "1"
 
 
 @app.route("/dradhandler", methods=["POST"])
-def ghasit_mouse():
+def ghasit_mouse() -> str:
     global drag
     # print(drag)
     if drag:
@@ -299,7 +299,7 @@ def ghasit_mouse():
     return "1"
 
 
-def main():
+def main() -> None:
     app.run("0.0.0.0", port=8000)
 
 

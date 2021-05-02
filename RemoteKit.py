@@ -17,7 +17,7 @@ coords = [(0, 0)]
 
 
 @app.route('/', methods=["GET", "POST"])
-def send():
+def send() -> str:
     # print("here")
     if request.method == 'POST':
         # print(request.get_json())
